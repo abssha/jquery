@@ -45,7 +45,9 @@ $.ajax({
 
         },
     error:(xhr,status,error)=>
-    {
+    {   
+        if(status=="error")
+            swal("Server Down", "Please try later", "error");
         console.error(error);
     }
 });
@@ -67,6 +69,8 @@ $('table').click((e)=>
                 },
             error:(xhr,status,error)=>
             {
+                if(status=="error")
+                    swal("Server Down", "Please try later", "error");
                 console.error(error);
             }
         });
@@ -105,6 +109,8 @@ $('form').submit((e)=>
                 },
                 error:(xhr,status,error)=>
                 {
+                    if(status=="error")
+                        swal("Server Down", "Please try later", "error");
                     console.error(error);
                     console.log("Status:",status);
                     console.log("Reponse:",xhr.responseText);
